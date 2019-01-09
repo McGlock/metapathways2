@@ -288,7 +288,10 @@ def write_annotation_for_orf(outputgff_file, candidatedbname, dbname_weight, res
       attributes += ";" + "locus_tag="+orf_dictionary[contig][candidate_orf_pos]['locus_tag']
       attributes += ";" + "contig_length="+orf_dictionary[contig][candidate_orf_pos]['contig_length']
       attributes += ";" + "orf_length="+orf_dictionary[contig][candidate_orf_pos]['orf_length']
-      attributes += ";" + "partial="+orf_dictionary[contig][candidate_orf_pos]['partial']
+      try:
+        attributes += ";" + "partial="+orf_dictionary[contig][candidate_orf_pos]['partial']
+      except:
+        pass
       attributes += ";" + "sourcedb="+candidatedbname
      
       if candidatedbname in results_dictionary:
